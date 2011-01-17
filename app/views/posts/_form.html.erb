@@ -1,0 +1,15 @@
+<% semantic_form_for @post do |form| %>
+  <% form.inputs do %>
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <% form.semantic_fields_for :comments do |comment| %>
+      <%= comment.input :name %>
+      <%= comment.input :comment %>
+      <%= comment.input :_destroy, :as => :boolean %>
+    <% end %>
+  <% end %>
+  <% form.buttons do %>
+    <%= form.commit_button "Submit" %>
+    <%= form.commit_button "Add New Comment" %>
+  <% end %>
+<% end %>
